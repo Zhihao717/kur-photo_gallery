@@ -1,0 +1,254 @@
+/* Переменные */
+:root {
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --line-height: 1.6;
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --container-bg: white;
+    --container-border-radius: 10px;
+    --box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    --form-gap: 20px;
+    --form-group-gap: 8px;
+    --label-color: #444;
+    --input-padding: 12px;
+    --input-border: 2px solid #e0e0e0;
+    --input-border-radius: 6px;
+    --input-font-size: 16px;
+    --input-focus-border: #4a90e2;
+    --button-primary-bg: #4a90e2;
+    --button-primary-hover-bg: #357abd;
+    --button-primary-color: white;
+    --button-primary-padding: 12px 24px;
+    --button-primary-border-radius: 6px;
+    --button-primary-font-size: 16px;
+    --button-primary-font-weight: 600;
+    --button-vote-bg: #5cb85c;
+	--button-vote-bg-changed: #dc3545;
+    --button-vote-hover-bg: #4cae4c;
+    --button-vote-padding: 8px 16px;
+    --button-vote-border-radius: 4px;
+    --link-color: #4a90e2;
+    --link-hover-color: #357abd;
+    --error-bg: #ffebee;
+    --error-color: #c62828;
+    --error-border: 1px solid #ffcdd2;
+    --success-bg: #e8f5e9;
+    --success-color: #2e7d32;
+    --success-border: 1px solid #c8e6c9;
+    --gallery-gap: 30px;
+    --photo-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --photo-card-hover-transform: translateY(-5px);
+    --photo-card-height: 250px;
+    --photo-info-padding: 15px;
+    --photo-description-color: #666;
+    --rating-font-size: 18px;
+    --rating-font-weight: 600;
+    --rating-color: #4a90e2;
+    --nav-padding: 15px 30px;
+    --greeting-padding: 20px;
+    --greeting-font-size: 24px;
+    --marquee-bg: rgba(74, 144, 226, 0.9);
+    --marquee-color: white;
+}
+
+/* Общие стили */
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Контейнеры */
+.auth-container,
+.upload-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--container-bg);
+    border-radius: var(--container-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Формы */
+.auth-form,
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-gap);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-group-gap);
+}
+
+label {
+    font-weight: 600;
+    color: var(--label-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    padding: var(--input-padding);
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    font-size: var(--input-font-size);
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px dashed var(--input-border);
+    border-radius: var(--input-border-radius);
+    cursor: pointer;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+}
+
+/* Кнопки */
+.btn-primary {
+    padding: var(--button-primary-padding);
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-color);
+    border: none;
+    border-radius: var(--button-primary-border-radius);
+    font-size: var(--button-primary-font-size);
+    font-weight: var(--button-primary-font-weight);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-primary-hover-bg);
+}
+
+.btn-vote {
+    padding: var(--button-vote-padding);
+    background-color: var(--button-vote-bg);
+    color: var(--button-primary-color);
+    border: none;
+    border-radius: var(--button-vote-border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-vote:hover {
+    background-color: var(--button-vote-hover-bg);
+}
+
+/* Ссылки */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Сообщения */
+.error-message,
+.success-message {
+    padding: var(--input-padding);
+    border-radius: var(--input-border-radius);
+    margin-bottom: 20px;
+}
+
+.error-message {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    border: var(--error-border);
+}
+
+.success-message {
+    background-color: var(--success-bg);
+    color: var(--success-color);
+    border: var(--success-border);
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--gallery-gap);
+    padding: 30px;
+}
+
+.photo-card {
+    background: var(--container-bg);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    box-shadow: var(--photo-card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: var(--photo-card-hover-transform);
+}
+
+.photo-card img {
+    width: 100%;
+    height: var(--photo-card-height);
+    object-fit: cover;
+}
+
+.photo-info {
+    padding: var(--photo-info-padding);
+}
+
+.photo-description {
+    margin: 10px 0;
+    color: var(--photo-description-color);
+}
+
+.rating {
+    font-size: var(--rating-font-size);
+    font-weight: var(--rating-font-weight);
+    color: var(--rating-color);
+}
+
+/* Навигация */
+.nav {
+    background: var(--container-bg);
+    padding: var(--nav-padding);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--form-gap);
+}
+
+/* Приветствие */
+#greeting {
+    padding: var(--greeting-padding);
+    text-align: center;
+    font-size: var(--greeting-font-size);
+    color: var(--text-color);
+    background: var(--container-bg);
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Бегущая строка */
+marquee {
+    padding: 10px;
+    background: var(--marquee-bg);
+    color: var(--marquee-color);
+    font-weight: 500;
+    z-index: 1000;
+}
